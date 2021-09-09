@@ -1,5 +1,6 @@
 package com.liang.pojo;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -8,6 +9,7 @@ import java.util.Map;
 
 
 @Component
+@ConfigurationProperties(prefix = "person")
 public class Person {
     private String name;
     private Integer age;

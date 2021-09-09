@@ -1,6 +1,7 @@
 package com.liang;
 
 import com.liang.pojo.Dog;
+import com.liang.pojo.Person;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -10,11 +11,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 class Springboot02ConfigApplicationTests {
     @Autowired
 //    @Qualifier
-    private Dog dog;
+    private Person person;
 
     @Test
     void contextLoads() {
-        System.out.println(dog);
+        System.out.println(person);
 
     }
 
