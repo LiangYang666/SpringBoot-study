@@ -1,12 +1,1 @@
-person:
-  name: liang
-  age: 24
-  happy: true
-  birth: 1997/01/24
-  maps: {k1: v1, K2: v2}
-  lists:
-    - code
-    - music
-  dog:
-    name: 旺财
-    age: 3
+debug: true
