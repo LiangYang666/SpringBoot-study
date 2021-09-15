@@ -16,6 +16,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
 //        registry.addViewController("/liang").setViewName("test");
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/index.html").setViewName("index");
+        registry.addViewController("/main.html").setViewName("dashboard");
     }
     //配置的国际化解析器注册到bean中后就可以使用了
     @Bean
