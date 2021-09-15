@@ -17,7 +17,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/index.html").setViewName("index");
     }
-
+    //配置的国际化解析器注册到bean中后就可以使用了
     @Bean
     public LocaleResolver localeResolver(){
         return new MyLocaleResolver();
