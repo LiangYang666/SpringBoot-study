@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
@@ -15,8 +16,10 @@ public class LoginController {
     public String login(
             @RequestParam("username") String username,
             @RequestParam("password") String password,
+            HttpSession session,
             Model model){
         if (!StringUtils.isEmpty(username) && "123456".equals(password)){
+            session.setAttribute("loginUser", username);
             return "redirect:/main.html";
         } else {
             model.addAttribute("msg", "用户名或者密码错误");
