@@ -7,9 +7,7 @@ import com.liang.pojo.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -37,6 +35,27 @@ public class EmployeeController {
     public String addEmp(Employee employee){
         System.out.println("添加一个职工"+employee);
         employeeDao.addEmployee(employee);
+        return "redirect:/templates/emps";
+    }
+    @GetMapping("/emp/{id}")
+    public String toEdit(@PathVariable("id") int id, Model model){
+        model.addAttribute("emp", employeeDao.getEmployeeById(id));
+        Collection<Department> allDepartments = departmentDao.getAllDepartments();
+        model.addAttribute("departments", allDepartments);
+        return "/emps/edit";
+
+//        return employeeDao.getEmployeeById(id).toString();
+    }
+    @PostMapping("/empEdit")
+    public String editEmp(Employee employee){
+        System.out.println("===>编辑一个员工");
+        employeeDao.addEmployee(employee);
+        return "redirect:/templates/emps";
+    }
+
+    @GetMapping("/delemp/{id}")
+    public String deleteEmp(@PathVariable("id") int id){
+        employeeDao.deleteEmployeeById(id);
         return "redirect:/templates/emps";
     }
 
