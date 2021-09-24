@@ -29,5 +29,13 @@ public class JDBCController {
         return new ModelAndView("redirect:/querytest");
     }
 
-
+    @GetMapping("/edit/{id}")
+    public void editUser(@PathVariable("id") int id, HttpServletResponse response) throws IOException {
+        String sql = "update mybatis.user set name=?, pwd=? where id="+id;
+        Object[] param = new Object[2];
+        param[0] = "修改";
+        param[1] = "000000";
+        jdbcTemplate.update(sql, param);
+        response.sendRedirect("/querytest");
+    }
 }
