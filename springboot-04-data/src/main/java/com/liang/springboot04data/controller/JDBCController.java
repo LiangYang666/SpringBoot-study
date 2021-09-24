@@ -38,4 +38,10 @@ public class JDBCController {
         jdbcTemplate.update(sql, param);
         response.sendRedirect("/querytest");
     }
+    @GetMapping("/del/{id}")
+    public void delUser(@PathVariable("id") int id, HttpServletResponse response) throws IOException {
+        String sql = "delete from mybatis.user where id="+id;
+        jdbcTemplate.update(sql);
+        response.sendRedirect("/querytest");
+    }
 }
