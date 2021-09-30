@@ -28,5 +28,5 @@ spring:
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
 
-mybatis:
-  mapper-locations: classpath:dao/*Mapper.xml
+#mybatis:
+#  mapper-locations: classpath:dao/*Mapper.xml
