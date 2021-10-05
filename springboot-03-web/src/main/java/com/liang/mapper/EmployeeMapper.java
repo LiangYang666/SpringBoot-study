@@ -8,4 +8,8 @@ import java.util.List;
 @Mapper
 public interface EmployeeMapper {
     List<Employee> getAllEmployees();
+    Employee getEmployeeById(int id);
+    void addEmployee(Employee employee);
+    void updateEmployee(Employee employee);
+    void deleteEmployeeById(int id);
 }

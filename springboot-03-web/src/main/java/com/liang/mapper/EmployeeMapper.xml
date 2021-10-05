@@ -20,6 +20,25 @@
         from mybatis.employee e, mybatis.department d
         where e.departmentId=d.id;
     </select>
+    <select id="getEmployeeById" resultMap="employeeMap">
+        select e.id, e.lastName, e.email, e.gender,
+               d.id departmentId, d.department, e.birth
+        from mybatis.employee e, mybatis.department d
+        where e.departmentId=d.id and e.id=#{id};
+    </select>
+    <insert id="addEmployee" parameterType="com.liang.pojo.Employee">
+       insert into mybatis.employee(id, lastName, email, gender, departmentId, birth)
+       value (#{id}, #{lastName}, #{email}, #{gender}, #{department.id}, #{birth});
+    </insert>
+    <delete id="deleteEmployeeById">
+        delete from mybatis.employee where id=#{id};
+    </delete>
+    <update id="updateEmployee" parameterType="com.liang.pojo.Employee">
+        update mybatis.employee
+        set lastName=#{lastName}, email=#{email}, gender=#{gender},
+            birth=#{birth}, departmentId=#{department.id}
+        where id=#{id};
+    </update>
 
 
 </mapper>
