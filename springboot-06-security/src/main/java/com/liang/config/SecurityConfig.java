@@ -16,7 +16,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/level1/*").hasRole("vip1")
                 .antMatchers("/level2/*").hasRole("vip2")
                 .antMatchers("/level3/*").hasRole("vip3")
-                .and().formLogin();
+                .and().formLogin();     //开启跳转login界面
+        http.logout().logoutSuccessUrl("/");      //  开启一个注销功能
     }
     //认证
     @Override
