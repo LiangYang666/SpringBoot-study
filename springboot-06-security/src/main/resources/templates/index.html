@@ -54,7 +54,7 @@
     <div>
         <br>
         <div class="ui three column stackable grid">
-            <div class="column">
+            <div class="column" sec:authorize="hasRole('vip1')">
                 <div class="ui raised segment">
                     <div class="ui">
                         <div class="content">
@@ -68,7 +68,7 @@
                 </div>
             </div>
 
-            <div class="column">
+            <div class="column" sec:authorize="hasRole('vip2')">
                 <div class="ui raised segment">
                     <div class="ui">
                         <div class="content">
