@@ -18,6 +18,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/level3/*").hasRole("vip3")
                 .and().formLogin();     //开启跳转login界面
         http.logout().logoutSuccessUrl("/");      //  开启一个注销功能
+        http.rememberMe();      //开启记住我选项 若不退出 将登陆信息保存至cookie 默认保存两周
     }
     //认证
     @Override
