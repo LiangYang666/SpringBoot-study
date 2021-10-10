@@ -11,4 +11,12 @@ public class MyController {
         model.addAttribute("msg", "Hello, shiro");
         return "index";
     }
+    @RequestMapping("/user/add")
+    public String toAdd(){
+        return "user/add";
+    }
+    @RequestMapping("/user/update")
+    public String toUpdate(){
+        return "user/update";
+    }
 }
