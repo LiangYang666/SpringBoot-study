@@ -1,5 +1,6 @@
 package com.liang.config;
 
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import org.apache.commons.collections.map.LinkedMap;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
@@ -44,8 +45,13 @@ public class ShiroConfig {
         securityManager.setRealm(userRealm);
         return securityManager;
     }
+    // 结合Mybatis，整合ShiroDialect进组件
     @Bean
     public UserRealm userRealm(){
         return new UserRealm();
     }
+    public ShiroDialect getShiroDialect(){
+        return new ShiroDialect();
+    }
+
 }
