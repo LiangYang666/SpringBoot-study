@@ -34,6 +34,7 @@ public class ShiroConfig {
 
         bean.setFilterChainDefinitionMap(filterMap);
         bean.setLoginUrl("/toLogin");
+        bean.setUnauthorizedUrl("/noAuth"); //设置未授权情况下跳转的页面
         return bean;
     }
 
