@@ -16,7 +16,7 @@ import java.util.Map;
 public class ShiroConfig {
     @Bean(name = "shiroFilterFactoryBean")
     public ShiroFilterFactoryBean getShiroFilterFactoryBean(
-            @Qualifier("securityManager") DefaultWebSecurityManager defaultWebSecurityManager
+            @Qualifier("getDefaultWebSecurityManager") DefaultWebSecurityManager defaultWebSecurityManager
     ){
         ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
         bean.setSecurityManager(defaultWebSecurityManager);
@@ -39,7 +39,7 @@ public class ShiroConfig {
         return bean;
     }
 
-    @Bean(name = "securityManager")
+    @Bean(name = "getDefaultWebSecurityManager")
     public DefaultWebSecurityManager getDefaultWebSecurityManager(@Qualifier("userRealm") UserRealm userRealm){
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(userRealm);
@@ -50,8 +50,9 @@ public class ShiroConfig {
     public UserRealm userRealm(){
         return new UserRealm();
     }
-    public ShiroDialect getShiroDialect(){
-        return new ShiroDialect();
-    }
+//    @Bean
+//    public ShiroDialect getShiroDialect(){
+//        return new ShiroDialect();
+//    }
 
 }
