@@ -19,7 +19,7 @@ public class UserRealm extends AuthorizingRealm {
         System.out.println("==>执行了 1 doGetAuthorizationInfo");
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         info.addStringPermission("user:add");
-        return null;
+        return info;
     }
 
     @Override
