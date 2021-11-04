@@ -29,8 +29,7 @@ public class ShiroConfig {
             role:拥有某个角色才能访问
          */
         Map<String, String> filterMap = new LinkedHashMap<>();
-        filterMap.put("/user/add", "perms[user:add]");
-        filterMap.put("/user/update", "perms[user:update]");
+
 //        filterMap.put("/user/*", "authc");
 
         bean.setFilterChainDefinitionMap(filterMap);
