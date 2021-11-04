@@ -27,6 +27,7 @@ public class UserRealm extends AuthorizingRealm {
         if(user == null){
             return null;
         }
+        //密码认证 可以加密 md5 MD5盐值加密
         return new SimpleAuthenticationInfo("", user.getPwd(), "");
     }
 }
