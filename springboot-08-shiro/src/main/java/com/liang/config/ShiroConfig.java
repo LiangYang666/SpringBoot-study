@@ -45,14 +45,13 @@ public class ShiroConfig {
         securityManager.setRealm(userRealm);
         return securityManager;
     }
-    // 结合Mybatis，整合ShiroDialect进组件
     @Bean
     public UserRealm userRealm(){
         return new UserRealm();
     }
-//    @Bean
-//    public ShiroDialect getShiroDialect(){
-//        return new ShiroDialect();
-//    }
-
+    // 结合Mybatis，整合ShiroDialect进组件
+    @Bean
+    public ShiroDialect getShiroDialect(){
+        return new ShiroDialect();
+    }
 }
