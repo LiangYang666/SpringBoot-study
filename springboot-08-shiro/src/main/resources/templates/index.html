@@ -7,6 +7,9 @@
 </head>
 <body>
 <h1>主页</h1>
+<div shiro:notAuthenticated="">
+    <a th:href="@{/toLogin}">登录</a>
+</div>
 <p th:text="${msg}"></p>
 <div shiro:hasPermission="'user:add'">
     <a th:href="@{/user/add}">add</a>
