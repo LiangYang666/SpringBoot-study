@@ -2,6 +2,7 @@ package com.liang.swagger.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
@@ -17,7 +18,11 @@ public class SwaggerConfig {
     @Bean
     public Docket docket(){
         return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo());
+                .apiInfo(apiInfo())
+                .select()
+                // RequestHandlerSelectors 配置要扫描接口的方式
+                .apis(RequestHandlerSelectors.basePackage("com.liang.swagger.controller"))
+                .build();
     }
 
     public ApiInfo apiInfo(){
